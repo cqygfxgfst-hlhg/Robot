@@ -2,13 +2,15 @@
 
 A comprehensive machine learning training job management system that orchestrates AI model training workflows using AWS ECS, Modal, and Supabase.
 
-## Demo
+## 🎦Demo
 
-[Watch Demo Video](https://www.loom.com/share/your-demo-video)
+[Watch Demo Video](https://youtu.be/2Vr293b0XF0)
+
+[Source Code](https://github.com/cqygfxgfst-hlhg/Robot)
 
 
 
-## Core Features
+## 🏹Core Features
 
 ### Job Creation
 
@@ -53,7 +55,7 @@ A comprehensive machine learning training job management system that orchestrate
 
 
 
-## Architecture
+## 🏠Architecture Decisions
 
 ```
 ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
@@ -70,9 +72,21 @@ A comprehensive machine learning training job management system that orchestrate
 └─────────────────┘    └─────────────────┘    └─────────────────┘
 ```
 
+**Frontend:** Built with `Next.js` and `Tailwind CSS`, deployed on Vercel. The interface includes a task creation form and a real-time dashboard for job status updates. UI components are built using `shadcn/ui` for consistency and responsiveness.
 
+**Authentication:** Implemented with `Clerk`, enabling secure login and user session management with minimal backend configuration. Clerk handles JWT issuance and user context.
 
-## Tech Stack
+**Backend API:** Powered by `FastAPI`, providing RESTful endpoints for job submission and status querying. Deployed via Docker to AWS ECS behind an HTTPS load balancer.
+
+**Job Queue:** Integrated with `AWS SQS` to decouple job submission from processing. This allows asynchronous job execution and future scalability.
+
+**Job Execution:** Implemented using `Modal`, a serverless platform for running training jobs. Modal simplifies infrastructure setup while supporting Python-based ML workflows.
+
+**Database:** `Supabase` is used for storing job metadata, status updates, retry history, and user association. PostgreSQL’s relational structure helps maintain clear job-user relationships.
+
+**Status Tracking:** The dashboard polls the backend to retrieve job statuses, which are updated asynchronously by the worker.
+
+## 🏭Tech Stack
 
 ### Frontend
 - **Framework**: Next.js 15.4.4 (Page Router)
@@ -100,7 +114,7 @@ A comprehensive machine learning training job management system that orchestrate
 
   
 
-## Installation & Setup
+## ⚙Installation & Setup
 
 The backend API is already deployed on AWS ECS and is publicly accessible.
 Therefore, you only need to run the frontend (Next.js) locally — it will communicate directly with the deployed backend without requiring local setup of the FastAPI server.
@@ -185,7 +199,7 @@ MODAL_TOKEN_SECRET=your_modal_token_secret
 
 
 
-## Database Schema
+## 📚Database Schema
 
 ### Jobs Table
 ```sql
@@ -234,7 +248,7 @@ create index IF not exists idx_jobs_user_id on public.jobs using btree (user_id)
 
 
 
-##  API Endpoints
+##  🔌API Endpoints
 
 ### Jobs API
 - `POST /jobs` - Create new training job
@@ -248,8 +262,8 @@ All endpoints above require valid Clerk JWT token in Authorization header.
 
 
 
-### 
-## Author
+
+## ⌨Author
 
 **Zining Cen**
 - GitHub: [cqygfxgfst-hlhg (iioo)](https://github.com/cqygfxgfst-hlhg)
@@ -257,7 +271,7 @@ All endpoints above require valid Clerk JWT token in Authorization header.
 
 
 
-## Acknowledgments
+## 🍃Acknowledgments
 
 - [Modal Labs](https://modal.com) for cloud training infrastructure
 - [Clerk](https://clerk.com) for authentication
