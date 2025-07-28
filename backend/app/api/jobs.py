@@ -22,7 +22,7 @@ class JobResponse(BaseModel):
 def submit_job(req: JobRequest, user_id: str = Depends(get_current_user_id)):
     print(f"Job API called - Model: {req.model_name}, Dataset: {req.dataset_url}, User: {user_id}")
     
-    # 生成唯一任务ID
+  
     job_id = str(uuid.uuid4())
     
     # 创建任务记录
