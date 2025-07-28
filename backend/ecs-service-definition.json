@@ -1,0 +1,35 @@
+{
+  "cluster": "lerobot-cluster",
+  "serviceName": "lerobot-backend-service",
+  "taskDefinition": "lerobot-backend",
+  "loadBalancers": [
+    {
+      "targetGroupArn": "arn:aws:elasticloadbalancing:YOUR_REGION:YOUR_ACCOUNT_ID:targetgroup/lerobot-backend-tg/YOUR_TARGET_GROUP_ID",
+      "containerName": "lerobot-backend",
+      "containerPort": 8000
+    }
+  ],
+  "desiredCount": 2,
+  "launchType": "FARGATE",
+  "platformVersion": "LATEST",
+  "deploymentConfiguration": {
+    "maximumPercent": 200,
+    "minimumHealthyPercent": 50
+  },
+  "networkConfiguration": {
+    "awsvpcConfiguration": {
+      "subnets": [
+        "subnet-YOUR_SUBNET_ID_1",
+        "subnet-YOUR_SUBNET_ID_2"
+      ],
+      "securityGroups": [
+        "sg-YOUR_SECURITY_GROUP_ID"
+      ],
+      "assignPublicIp": "ENABLED"
+    }
+  },
+  "healthCheckGracePeriodSeconds": 60,
+  "schedulingStrategy": "REPLICA",
+  "enableECSManagedTags": true,
+  "propagateTags": "SERVICE"
+} 

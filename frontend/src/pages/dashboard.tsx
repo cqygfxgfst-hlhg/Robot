@@ -45,8 +45,9 @@ export default function DashboardPage() {
                        Array.isArray(data) ? data : [];
       
       setJobs(jobsArray)
-    } catch (err: any) {
-      setError("Failed to fetch tasks: " + err.message)
+    } catch (err: unknown) {
+      const errorMessage = err instanceof Error ? err.message : 'Unknown error occurred';
+      setError("Failed to fetch tasks: " + errorMessage)
       setJobs([]) // 出错时设置为空数组
     }
   }
