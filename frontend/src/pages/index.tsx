@@ -20,7 +20,7 @@ export default function Home() {
   if (!isSignedIn) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center">
-        <h1 className="text-4xl font-bold mb-8">LeRobot 训练任务管理系统</h1>
+        <h1 className="text-4xl font-bold mb-8">LeRobot Training Task Management System</h1>
         <div className="space-x-4">
           <Link
             href="/sign-in"
