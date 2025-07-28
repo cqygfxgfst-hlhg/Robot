@@ -26,13 +26,13 @@ export default function Home() {
             href="/sign-in"
             className="px-6 py-3 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
           >
-            登录
+            Sign In
           </Link>
           <Link
             href="/sign-up"
             className="px-6 py-3 border border-blue-600 text-blue-600 rounded hover:bg-blue-50 transition"
           >
-            注册
+            Sign Up
           </Link>
         </div>
       </div>
